@@ -1,13 +1,13 @@
 import { model, Schema } from "mongoose";
 import { pixSchema } from "./PixSchema";
 
-const ContaSchema = new Schema(
+const contaSchema = new Schema(
     {
         primeiroNome: {
             type: String,
             required: [true, "Digite o primeiro NOME"]
         },
-        sobreNome: {
+        sobrenome: {
             type: String,
             required: [true, "Digite o SOBRENOME"]
         },
@@ -31,4 +31,4 @@ const ContaSchema = new Schema(
     }
 );
 
-export default model("contas", ContaSchema);
+export default model("contas", contaSchema);

@@ -1,11 +1,14 @@
 import  {model, Schema} from "mongoose";
+import { pixSchema } from "./PixSchema";
 
 const saqueSchema = new Schema(
     {
         valor:{
             type: Number,
             required: [true,"O valor para o saque é obrigatório!"],
+            min: [1, "valor mínimo de R$1,00"]
         },
+        chavepix: [pixSchema],
 
     },
     {
