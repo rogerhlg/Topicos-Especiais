@@ -2,16 +2,11 @@ import { Router } from "express";
 import { ContaController } from "../controllers/contaController";
 
 const router = Router();
-      
-app.route("/clientes")
-    .get(this.contaController.getConta)
-    .post(this.contaController.addNewConta);
 
-     
-app.route("/Conta/:contaId")
-    .get(this.contaController.getContaPorID)
-    .put(this.contaController.updateConta)
-    .delete(this.contaController.deleteConta);
+const contaController = new ContaController();
 
+router.get("/conta/listar/", contaController.listar); 
+router.get("/conta/listar/:param1/:param2", contaController.buscarPorId);
+router.post("/conta/cadastrar", contaController.cadastrar);
 
 export { router };
