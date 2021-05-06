@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/rogerhlg/Topicos-Especiais#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.12.7"
   },
   "devDependencies": {
-    "@types/express": "^4.17.11"
+    "@types/express": "^4.17.11",
+    "@types/mongoose": "^5.10.5"
   }
 }
