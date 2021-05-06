@@ -39,6 +39,19 @@ class ContaController{
         console.log(objeto);
         response.json(objeto);
     }
+
+    async saque(request: Request, response: Response){
+        //**AINDA NÃO TESTEI**
+        try {
+            const cpf = request.params.cpf;
+            const valor = request.body.valor;
+            
+            await ContaSchema.findOneAndUpdate({cpf : cpf}, {$inc : {saldo : valor}});
+            response.status(200).json("Saldo adicionado");
+        } catch (error) {
+            response.status(400).json(error);
+        }
+    }
 }
 
 export { ContaController }
