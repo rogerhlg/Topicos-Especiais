@@ -1,4 +1,5 @@
 import { model, Schema } from "mongoose";
+import { pixSchema } from "./PixSchema";
 
 const ContaSchema = new Schema(
     {
@@ -17,7 +18,8 @@ const ContaSchema = new Schema(
         telefone: {
             type: String,
             required: [true, "Digite o TELEFONE"]
-        }
+        },
+        chavepix: pixSchema,
     },
     {
         timestamps: true,
