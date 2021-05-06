@@ -19,7 +19,7 @@ const ContaSchema = new Schema(
             type: String,
             required: [true, "Digite o TELEFONE"]
         },
-        chavepix: pixSchema,
+        chavepix: [pixSchema],
     },
     {
         timestamps: true,

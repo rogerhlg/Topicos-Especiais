@@ -1,0 +1,24 @@
+###
+GET http://localhost:3000/conta/listar/
+
+
+###
+GET http://localhost:3000/conta/listar/123/ead
+
+
+###
+POST http://localhost:3000/conta/cadastrar
+Content-Type: application/json
+
+{
+    "primeiroNome" : "Franciele",
+    "sobreNome" : "Silveira",
+    "CPF" : "Silveira",
+    "telefone" : "9999999",
+    "chavepix" : [
+        {
+            "tipoChave" : "CPF",
+            "chave" : "123"
+        }
+    ] 
+}
