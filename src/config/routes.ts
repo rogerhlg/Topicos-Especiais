@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { ContaController } from "../controllers/ContaController";
+import { ContaController } from "../controllers/contaController";
 
 const router = Router();
 
