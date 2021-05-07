@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-import PixSchema from "./PixSchema";
+import {pixSchema} from "./PixSchema";
 
 const contaSchema = new Schema(
     {
@@ -23,7 +23,7 @@ const contaSchema = new Schema(
             type: Number,
             default: 0
         },
-        chavepix: [PixSchema],
+        chavepix: [pixSchema],
 
     },
     {

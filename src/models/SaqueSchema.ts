@@ -1,5 +1,9 @@
 import  {model, Schema} from "mongoose";
+<<<<<<< HEAD
 import PixSchema from "./PixSchema";
+=======
+import  {pixSchema}  from "./PixSchema";
+>>>>>>> 5605ae796f91e1e0425374c8a2a7ea5c57e59ba2
 
 const saqueSchema = new Schema(
     {
