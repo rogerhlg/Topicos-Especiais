@@ -1,5 +1,5 @@
 import  {model, Schema} from "mongoose";
-import PixSchema from "./PixSchema";
+import {pixSchema} from "./PixSchema";
 
 const transferenciaSchema = new Schema(
     {
@@ -8,7 +8,7 @@ const transferenciaSchema = new Schema(
             required: [true,"O valor para a transferência é obrigatório!"],
             min: [1, "valor mínimo de R$1,00"]
         },
-        chavepix: [PixSchema],
+        chavepix: [pixSchema],
 
     },
     {

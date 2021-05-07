@@ -6,6 +6,7 @@ import SaqueSchema from "../models/SaqueSchema";
 
 
 class ContaController{
+
     async listar(request: Request, response: Response) {
         const contas = await ContaSchema.find();
          response.status(200).json(contas);
