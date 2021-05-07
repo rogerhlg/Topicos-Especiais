@@ -1,13 +1,13 @@
 import  {model, Schema} from "mongoose";
-import { depositoSchema } from "./DepositoSchema";
-import { saqueSchema } from "./SaqueSchema";
+import DepositoSchema from "./DepositoSchema";
+import SaqueSchema from "./SaqueSchema";
 import { transferenciaSchema } from "./TransferenciaSchema";
 
 
 const extratoSchema = new Schema(
     {
-        saques: [saqueSchema],
-        depósitos: [depositoSchema],
+        saques: [SaqueSchema],
+        depósitos: [DepositoSchema],
         transferências: [transferenciaSchema]
     },
     {

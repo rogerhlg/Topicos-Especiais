@@ -4,7 +4,7 @@ import  PixSchema  from "../models/PixSchema";
 class PixController{
 
     async listar(request: Request, response: Response) {
-        const pixes = await PixSchema.create();
+        const pixes = await PixSchema.find();
          response.status(200).json(pixes);
     }
 

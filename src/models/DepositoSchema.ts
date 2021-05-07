@@ -1,5 +1,5 @@
 import  { model, Schema } from "mongoose";
-import { pixSchema } from "./PixSchema";
+import PixSchema from "./PixSchema";
 
 const depositoSchema = new Schema(
     {
@@ -24,5 +24,5 @@ const depositoSchema = new Schema(
     }
 );
 
-export { depositoSchema };
-//export default model("deposito",depositoSchema); //apenas quando exportamos um schema essa sintaxe
+//export { depositoSchema };
+export default model("deposito",depositoSchema); //apenas quando exportamos um schema essa sintaxe

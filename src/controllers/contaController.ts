@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import ContaSchema from "../models/ContaSchema";
 import DepositoSchema from "../models/DepositoSchema";
 import SaqueSchema from "../models/SaqueSchema";
+
+
 class ContaController{
     async listar(request: Request, response: Response) {
         const contas = await ContaSchema.find();
@@ -62,7 +64,7 @@ class ContaController{
     }
 
     async extrato(request: Request, response: Response){
-        
+
     }
 }
 
