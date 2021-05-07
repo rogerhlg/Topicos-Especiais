@@ -4,10 +4,7 @@ import ContaSchema from "../models/ContaSchema";
 import DepositoSchema from "../models/DepositoSchema";
 import SaqueSchema from "../models/SaqueSchema";
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 42b9d925a3fc41b2b55c08a3078c474b5c3e6113
 class ContaController{
     async listar(request: Request, response: Response) {
         const contas = await ContaSchema.find();
@@ -40,13 +37,13 @@ class ContaController{
     }
 
     async remover(request: Request, response: Response) {
-        const { cpf } = request.params;
-        const conta = await ContaSchema.findOne({ cpf : cpf });
+        const { CPF } = request.params;
+        const conta = await ContaSchema.findOne({ CPF : CPF });
         if(conta != null) {
-            const conta = await ContaSchema.deleteOne({ cpf : cpf });
+            const conta = await ContaSchema.deleteOne({ CPF : CPF });
             response.status(200).json({ msg: "Excluído com sucesso!"})
         } else {
-            response.status(404).json({ msg: "A pessoa não existe!"});
+            response.status(404).json({ msg: "A conta não existe!"});
         }
     }
 
