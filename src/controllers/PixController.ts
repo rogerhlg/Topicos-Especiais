@@ -1,5 +1,5 @@
 // import { Request, Response } from "express";
-// import pixSchema from "../models/PixSchema";
+// import { pixSchema } from "../models/PixSchema";
 
 // class PixController{
 //     async listar(request: Request, response: Response) {
