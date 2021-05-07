@@ -9,7 +9,7 @@ const pixSchema = new Schema(
         },
         chave: {
             type: String,
-            required: [true, "O campo CHAVE do pix é obrigatório!"]
+            required: [true, "O campo CHAVE do PIX é obrigatório!"]
         }
     },
     {
