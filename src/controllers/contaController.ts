@@ -4,10 +4,6 @@ import ContaSchema from "../models/ContaSchema";
 import DepositoSchema from "../models/DepositoSchema";
 import SaqueSchema from "../models/SaqueSchema";
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 42b9d925a3fc41b2b55c08a3078c474b5c3e6113
 class ContaController{
     async listar(request: Request, response: Response) {
         const contas = await ContaSchema.find();
