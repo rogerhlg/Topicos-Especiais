@@ -1,0 +1,27 @@
+###
+POST http://localhost:3000/conta/deposito
+Content-Type: application/json
+
+{
+    "valor" : 100,
+    "chavepix" : [
+        {
+            "tipoChave" : "EMAIL",
+            "chave" : "roger@"
+        }
+    ] 
+}
+
+###
+POST http://localhost:3000/conta/saque
+Content-Type: application/json
+
+{
+    "valor" : 100,
+    "chavepix" : [
+        {
+            "tipoChave" : "EMAIL",
+            "chave" : "roger@"
+        }
+    ] 
+}

@@ -5,7 +5,6 @@ GET http://localhost:3000/conta/listar/
 ###
 GET http://localhost:3000/conta/listar/609463890f582d0e3c1389bf
 
-
 ###
 POST http://localhost:3000/conta/cadastrar
 Content-Type: application/json
