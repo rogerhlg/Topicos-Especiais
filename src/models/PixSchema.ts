@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 
 const pixSchema = new Schema(
     {
@@ -17,4 +17,4 @@ const pixSchema = new Schema(
     }
 );
 
-export { pixSchema };
+export default model("pixes", pixSchema);
