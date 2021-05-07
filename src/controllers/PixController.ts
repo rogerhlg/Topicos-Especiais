@@ -1,10 +1,13 @@
 import { Request, Response } from "express";
-import  PixSchema  from "../models/PixSchema";
+import  {pixSchema}  from "../models/PixSchema";
+import {Model, Schema, Mongoose} from "mongoose";
 
 class PixController{
+    
 
     async listar(request: Request, response: Response) {
-        const pixes = await PixSchema.create();
+        const Model = mongoose.model('Pix', pixSchema);
+        const pixes = await pixSchema.create();
          response.status(200).json(pixes);
     }
 
@@ -13,7 +16,7 @@ class PixController{
         // const ciclo = await CicloSchema.findById(id);
         // const ciclo = await CicloSchema.find({ _id : id});
         try {
-            const pix = await PixSchema.findOne({ _id : id});
+            const pix = await pixSchema.findOne({ _id : id});
             if(pix === null) {
                 response.status(404).json({ msg: "Esse pix não existe!"});
             }

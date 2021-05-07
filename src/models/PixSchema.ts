@@ -17,4 +17,4 @@ const pixSchema = new Schema(
     }
 );
 
-export default model("pixes", pixSchema);
+export {pixSchema}; 

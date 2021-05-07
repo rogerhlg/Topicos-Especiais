@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-import { pixSchema } from "./PixSchema";
+import {pixSchema} from "./PixSchema";
 
 const contaSchema = new Schema(
     {
