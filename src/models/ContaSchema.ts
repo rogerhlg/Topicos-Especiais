@@ -23,8 +23,10 @@ const contaSchema = new Schema(
             type: Number,
             default: 0
         },
-        chavepix: [pixSchema],
-
+        PIX:{
+            type: String,
+            required: [true, "Digite o pix"]
+        }
     },
     {
         timestamps: true,
