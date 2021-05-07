@@ -11,8 +11,8 @@ Content-Type: application/json
 
 {
     "primeiroNome" : "Franciele",
-    "sobrenome" : "Silveira",
-    "CPF" : "123123",
+    "sobrenome" : "abc",
+    "CPF" : "333333",
     "telefone" : "9999999",
     "chavepix" : [
         {
@@ -28,7 +28,7 @@ Content-Type: application/json
 
 {
     "primeiroNome" : "Liandra",
-    "sobrenome" : "Silveira",
+    "sobrenome" : "abc",
     "CPF" : "123123",
     "telefone" : "9999999",
     "chavepix" : [
@@ -38,3 +38,6 @@ Content-Type: application/json
         }
     ] 
 }
+
+###
+DELETE http://localhost:3000/conta/deletar/333333
