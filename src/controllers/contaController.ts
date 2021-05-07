@@ -44,6 +44,10 @@ class ContaController{
             response.status(400).json(error);
         }
     }
+
+    async extrato(request: Request, response: Response){
+        
+    }
 }
 
 export { ContaController }

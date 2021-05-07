@@ -16,4 +16,5 @@ const saqueSchema = new Schema(
     }
 );
 
-export default model("saque",saqueSchema); //apenas quando exportamos um schema essa sintaxe
+export { saqueSchema };
+//export default model("saque",saqueSchema); //apenas quando exportamos um schema essa sintaxe
