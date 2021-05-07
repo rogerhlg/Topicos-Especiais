@@ -1,0 +1,24 @@
+# ###
+# GET http://localhost:3000/pix/listar/
+
+
+# ###
+# GET http://localhost:3000/pix/listar/
+
+
+# ###
+# POST http://localhost:3000/pix/cadastrar
+# Content-Type: application/json
+
+# {
+#     "chavepix" : [
+#         {
+#             "tipoChave" : "CPF",
+#             "chave" : "123"
+#         },
+#         {
+#             "tipoChave" : "RG",
+#             "chave" : "456"
+#         }
+#     ] 
+# }
