@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import ContaSchema from "../models/ContaSchema";
-
+import DepositoSchema from "../models/DepositoSchema";
+import SaqueSchema from "../models/SaqueSchema";
 class ContaController{
     async listar(request: Request, response: Response) {
         const contas = await ContaSchema.find();
@@ -33,13 +34,28 @@ class ContaController{
     }
 
     async saque(request: Request, response: Response){
+       
+        try {
+            const saque = request.body;
+            await SaqueSchema.create(saque);
+            const valor = saque.valor;
+            const chave = saque.chavepix.chave; 
+            await ContaSchema.findOneAndUpdate({'chavepix.chave' : chave}, {$inc : {saldo : -valor}});
+            response.status(200).json("Saque efeutado!");
+        } catch (error) {
+            response.status(400).json(error);
+        }
+    }
+
+    async deposito(request: Request, response: Response){
         //**AINDA NÃO TESTEI**
         try {
-            const cpf = request.params.cpf;
-            const valor = request.body.valor;
-            
-            await ContaSchema.findOneAndUpdate({cpf : cpf}, {$inc : {saldo : valor}});
-            response.status(200).json("Saldo adicionado");
+            const deposito = request.body;
+            await DepositoSchema.create(request.body);
+            const valor  = deposito.valor;
+            const chave    = deposito.pix.chave;
+            await ContaSchema.findOneAndUpdate({'chavepix.chave' : chave}, {$inc : {saldo : valor}});
+            response.status(200).json("Deposito efetuado");
         } catch (error) {
             response.status(400).json(error);
         }

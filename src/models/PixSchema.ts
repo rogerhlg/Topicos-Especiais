@@ -1,4 +1,4 @@
-import { Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 
 const pixSchema = new Schema(
     {
@@ -9,7 +9,7 @@ const pixSchema = new Schema(
         },
         chave: {
             type: String,
-            required: [true, "O campo CHAVE do pix é obrigatório!"]
+            required: [true, "O campo CHAVE do PIX é obrigatório!"]
         }
     },
     {
@@ -17,4 +17,4 @@ const pixSchema = new Schema(
     }
 );
 
-export { pixSchema };
+export default model("pixes", pixSchema);
