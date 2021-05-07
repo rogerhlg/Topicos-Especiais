@@ -3,41 +3,31 @@ GET http://localhost:3000/conta/listar/
 
 
 ###
-GET http://localhost:3000/conta/buscar/123123
+GET http://localhost:3000/conta/buscar/333333
 
 ###
 POST http://localhost:3000/conta/cadastrar
 Content-Type: application/json
 
 {
-    "primeiroNome" : "Franciele",
+    "primeiroNome" : "RogerDopix",
     "sobrenome" : "abc",
     "CPF" : "333333",
     "telefone" : "9999999",
-    "chavepix" : [
-        {
-            "tipoChave" : "CPF",
-            "chave" : "123"
-        }
-    ] 
+    "PIX" : "segundachave"
 }
 
 ###
-PUT http://localhost:3000/conta/atualizar/123123
+PUT http://localhost:3000/conta/atualizar/333333
 Content-Type: application/json
 
 {
-    "primeiroNome" : "Liandra",
+    "primeiroNome" : "Gold Roger",
     "sobrenome" : "abc",
     "CPF" : "123123",
     "telefone" : "9999999",
-    "chavepix" : [
-        {
-            "tipoChave" : "CPF",
-            "chave" : "123"
-        }
-    ] 
+    "chavepix" : "segundachave"
 }
 
 ###
-DELETE http://localhost:3000/conta/deletar/333333
+DELETE http://localhost:3000/conta/deletar/123123

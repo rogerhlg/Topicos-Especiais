@@ -87,11 +87,12 @@ class ContaController{
     async saque(request: Request, response: Response){
         try {
             const saque = request.body;
-            await SaqueSchema.create(saque);
-            const valor = saque.valor;
-            const chave = saque.chavepix.chave; 
-            await ContaSchema.findOneAndUpdate({'chavepix.chave' : chave}, {$inc : {saldo : -valor}});
-            response.status(200).json("Saque efeutado!");
+            const {PIX} = request.params;
+            console.log(PIX);
+            await SaqueSchema.create(request.body);
+            const saldo = saque.valor;
+            await ContaSchema.updateOne({PIX : PIX}, {$inc : {saldo : -saldo}});
+                response.status(200).json("Saque efetuado");
         } catch (error) {
             response.status(400).json(error);
         }
@@ -101,11 +102,13 @@ class ContaController{
         //**AINDA NÃO TESTEI**
         try {
             const deposito = request.body;
+            const {PIX} = request.params;
             await DepositoSchema.create(request.body);
-            const valor  = deposito.valor;
-            const chave    = deposito.pix.chave;
-            await ContaSchema.findOneAndUpdate({'chavepix.chave' : chave}, {$inc : {saldo : valor}});
-            response.status(200).json("Deposito efetuado");
+            // console.log(request.body);
+            const saldo  = deposito.valor;
+            const pix = deposito.pix;
+            await ContaSchema.updateOne({PIX : PIX}, {$inc : {saldo}});
+                response.status(200).json("Deposito efetuado");
         } catch (error) {
             response.status(400).json(error);
         }
