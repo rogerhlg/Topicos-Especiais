@@ -1,4 +1,5 @@
-import  {model, Schema} from "mongoose";
+import  { model, Schema } from "mongoose";
+import { pixSchema } from "./PixSchema";
 
 const depositoSchema = new Schema(
     {

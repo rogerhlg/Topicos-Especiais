@@ -2,42 +2,34 @@ import { Request, Response } from "express";
 import ContaSchema from "../models/ContaSchema";
 
 class ContaController{
-    listar(request: Request, response: Response) {
-        const objeto = {
-            atribTexto : "Uma string qualquer",
-            atribNumero : 123.54,
-            atribLogico : false,
-            atribObjeto : {
-                atribVetor : ["Opção1", "Opção2"],
-                atributo: {
-                    atribVetor : ["Opção1", "Opção2"],
-                    atributo: "123123",
-                },
-            },
-        };
-         response.json(objeto);
+    async listar(request: Request, response: Response) {
+        const contas = await ContaSchema.find();
+         response.status(200).json(contas);
     }
 
-    buscarPorId(request: Request, response: Response) {
-        const { param1, param2 } = request.params;
-        const objeto = {
-            param1,
-            param2,
-            atribTexto : "Uma string qualquer",
-            atribNumero : 123.54,
-            atribLogico : false,
-            atribObjeto : {
-                atribVetor : ["Opção1", "Opção2"]
+    async buscarPorId(request: Request, response: Response) {
+        const { id } = request.params;
+        // const ciclo = await CicloSchema.findById(id);
+        // const ciclo = await CicloSchema.find({ _id : id});
+        try {
+            const conta = await ContaSchema.findOne({ _id : id});
+            if(conta === null) {
+                response.status(404).json({ msg: "A conta não existe!"});
             }
-        };
-        response.json(objeto);
+            response.status(200).json(conta);
+        } catch (error) {
+            response.status(400).json(error);
+        }
+        
     }
 
-    cadastrar(request: Request, response: Response) {
-        const objeto = request.body; 
-        ContaSchema.create(objeto);
-        console.log(objeto);
-        response.json(objeto);
+    async cadastrar(request: Request, response: Response) {
+        try {
+            const novaConta = await ContaSchema.create(request.body);
+            response.status(201).json(novaConta);
+        }catch (error) {
+            response.status(400).json(error);
+        }
     }
 
     async saque(request: Request, response: Response){
@@ -55,35 +47,3 @@ class ContaController{
 }
 
 export { ContaController }
-
-//import * as mongoose from "mongoose";
-
-
-//const Conta: any = mongoose.model("Conta", ContaSchema);
-
-// export class ContaController {
-//      addNewConta(req: Request, res: Response): void {
-//         let newConta: any = new Conta(req.body);
-//         });
-//     }
-
-//      getConta(request: Request, response: Response): void {
-//         Conta.find({}, (, ) => {
-//         });
-//     }
-
-//      getContaPorID (request: Request, response: Response): void {
-//         Conta.findById(request.params.fileId, () => {
-//         });
-//     }
-
-//      updateConta (req: Request, res: Response): void {
-//         Conta.findOneAndUpdate({ _id: req.params. }, req.body, { new: true }, () => {
-//         });
-//     }
-
-//      deleteConta (request: Request, response: Response): void {
-//         Conta.remove({ _id: request.params.contatId }, () => {
-            
-//         });
-//     }
