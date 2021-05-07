@@ -6,9 +6,17 @@ const depositoSchema = new Schema(
         valor:{
             type: Number,
             required: [true,"É obrigatório!"],
-            min: [1, "valor mínimo de R$1,00"]
+            min: [1, "Valor mínimo de R$ 1,00"],
         },
-        chavepix: [pixSchema],
+        conta: {
+            type: Boolean,
+            required:[true,"A conta alvo para o depósito é obrigatória!"],
+        },
+        status:{
+            type: String,
+            enum: ["EFETUADO","AGENDADO","PENDENTE"],
+            uppercase: true
+          }
 
     },
     {
