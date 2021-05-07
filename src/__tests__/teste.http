@@ -21,3 +21,20 @@ Content-Type: application/json
         }
     ] 
 }
+
+###
+PUT http://localhost:3000/conta/atualizar/123123
+Content-Type: application/json
+
+{
+    "primeiroNome" : "Liandra",
+    "sobrenome" : "Silveira",
+    "CPF" : "123123",
+    "telefone" : "9999999",
+    "chavepix" : [
+        {
+            "tipoChave" : "CPF",
+            "chave" : "123"
+        }
+    ] 
+}

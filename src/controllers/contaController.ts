@@ -25,6 +25,42 @@ class ContaController{
         
     }
 
+    async atualizar (request:Request, response:Response) {
+        try{
+          const {primeiroNome, sobrenome, CPF, telefone, chavepix} = request.body
+          const { cpf } = request.params
+          const conta = await ContaSchema.findOneAndUpdate({ CPF : cpf}, {
+            primeiroNome, 
+            sobrenome, 
+            CPF, 
+            telefone, 
+            chavepix
+          }, {new: true} )
+      
+          if(conta != null){
+      
+          response.status(200).json({
+            objeto: conta,
+            msg: "Conta atualizada com sucesso",
+            erro: false
+          })
+      
+          } else{
+            response.status(404).json({
+                objeto: conta,
+                msg:"A conta procurado não existe",
+                erro:true})
+          }
+        } catch (error) {
+          response.status(400).json({
+              objeto: error,
+              msg: "Digite um CPF com formato válido",
+              erro: true
+            })
+        }
+      
+      }
+
     async cadastrar(request: Request, response: Response) {
         try {
             const novaConta = await ContaSchema.create(request.body);
@@ -35,7 +71,6 @@ class ContaController{
     }
 
     async saque(request: Request, response: Response){
-       
         try {
             const saque = request.body;
             await SaqueSchema.create(saque);

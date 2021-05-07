@@ -9,5 +9,6 @@ router.get("/conta/listar/", contaController.listar);
 router.get("/conta/buscar/:cpf", contaController.buscarPorCpf);
 router.post("/conta/cadastrar", contaController.cadastrar);
 router.get("/conta/saque/:cpf/:valor", contaController.saque);
+router.put("/conta/atualizar/:cpf", contaController.atualizar);
 
 export { router };
