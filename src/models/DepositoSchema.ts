@@ -24,4 +24,5 @@ const depositoSchema = new Schema(
     }
 );
 
+//export { depositoSchema };
 export default model("deposito",depositoSchema); //apenas quando exportamos um schema essa sintaxe

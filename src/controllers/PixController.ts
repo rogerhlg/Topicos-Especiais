@@ -1,13 +1,11 @@
 import { Request, Response } from "express";
 import  {pixSchema}  from "../models/PixSchema";
-import {Model, Schema, Mongoose} from "mongoose";
 
 class PixController{
     
 
     async listar(request: Request, response: Response) {
-        const Model = mongoose.model('Pix', pixSchema);
-        const pixes = await pixSchema.create();
+        const pixes = await pixSchema.find();
          response.status(200).json(pixes);
     }
 
@@ -29,7 +27,7 @@ class PixController{
 
     async cadastrar(request: Request, response: Response) {
         try {
-            const novaPix = await PixSchema.create(request.body);
+            const novaPix = await pixSchema.create(request.body);
             response.status(201).json(novaPix);
         }catch (error) {
             response.status(400).json(error);
