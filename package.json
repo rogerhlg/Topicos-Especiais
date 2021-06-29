@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/rogerhlg/Topicos-Especiais#readme",
   "dependencies": {
+    "@types/cors": "^2.8.10",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.12.7"
   },

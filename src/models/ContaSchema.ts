@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-import {pixSchema} from "./PixSchema";
+import pixSchema from "./PixSchema";
 
 const contaSchema = new Schema(
     {
@@ -23,10 +23,7 @@ const contaSchema = new Schema(
             type: Number,
             default: 0
         },
-        PIX:{
-            type: String,
-            required: [true, "Digite o pix"]
-        }
+        PIX: [{ type: Schema.Types.ObjectId, ref: "pix"}]
     },
     {
         timestamps: true,

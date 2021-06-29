@@ -10,15 +10,20 @@
 POST http://localhost:3000/pix/cadastrar
  Content-Type: application/json
 
- {
-     "chavepix" : [
-         {
-             "tipoChave" : "CPF",
-             "chave" : "123"
-         },
-         {
-             "tipoChave" : "RG",
-             "chave" : "456"
-         }
-     ] 
- }
+{
+    "tipoChave": "CPF",
+    "chave": "123"
+}
+
+#  {
+#      "chavepix" : [
+#          {
+#              "tipoChave" : "CPF",
+#              "chave" : "123"
+#          },
+#          {
+#              "tipoChave" : "RG",
+#              "chave" : "456"
+#          }
+#      ] 
+#  }

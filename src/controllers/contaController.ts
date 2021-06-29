@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { pixSchema } from "../models/PixSchema"
+import pixSchema from "../models/PixSchema"
 import ContaSchema from "../models/ContaSchema";
 import DepositoSchema from "../models/DepositoSchema";
 import SaqueSchema from "../models/SaqueSchema";
