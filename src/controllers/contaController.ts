@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import pixSchema from "../models/PixSchema"
 import ContaSchema from "../models/ContaSchema";
 import DepositoSchema from "../models/DepositoSchema";
 import SaqueSchema from "../models/SaqueSchema";
@@ -66,9 +65,11 @@ class ContaController{
 
     async cadastrar(request: Request, response: Response) {
         try {
-          const { cpf } = request.body;
-          if (await ContaSchema.exists({ cpf })) {
+          const { CPF, PIX } = request.body;
+          if (await ContaSchema.exists({ CPF })) {
             response.status(400).json({ msg: "CPF duplicado pelo código" });
+          } else if (await ContaSchema.exists({ PIX })) {
+            response.status(400).json({ msg: "PIX duplicado" });
           } else {
             const novaConta = await ContaSchema.create(request.body);
             response.status(201).json(novaConta);

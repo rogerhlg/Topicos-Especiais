@@ -1,5 +1,4 @@
 import { model, Schema } from "mongoose";
-import pixSchema from "./PixSchema";
 
 const contaSchema = new Schema(
     {
@@ -13,7 +12,8 @@ const contaSchema = new Schema(
         },
         CPF: {
             type: String,
-            required: [true, "Digite o CPF"]
+            required: [true, "Digite o CPF"],
+            unique: true 
         },
         telefone: {
             type: String,
@@ -23,7 +23,10 @@ const contaSchema = new Schema(
             type: Number,
             default: 0
         },
-        PIX: [{ type: Schema.Types.String, ref: 'pix'}]
+        PIX: {
+            type: String,
+            required: [true, "Digite o PIX"]
+        }
     },
     {
         timestamps: true,

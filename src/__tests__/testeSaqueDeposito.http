@@ -1,18 +1,18 @@
 ###
-POST http://localhost:3000/conta/deposito/segundachave
+POST http://localhost:3000/conta/deposito/pixpix
 Content-Type: application/json
 
 {
-    "valor" : 100,
-    "pix" : "segundachave"
+    "valor" : 500,
+    "pix" : "pixpix"
 }
 
 ###
-POST http://localhost:3000/conta/saque/segundachave
+POST http://localhost:3000/conta/saque/pixpix
 Content-Type: application/json
 
 {
     "valor" : 100,
-    "pix" : "segundachave"
+    "chavepix" : "pixpix"
 }
 

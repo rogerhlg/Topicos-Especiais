@@ -1,17 +1,20 @@
-import { model } from "mongoose";
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// import { Schema } from "mongoose";
 
-const pixSchema = Schema(
-    {   
-        chave: {
-            type: String,
-            required: [true, "O campo CHAVE do PIX é obrigatório!"]
-        }
-    },
-    {
-        timestamps: true,
-    }
-);
+// const pixSchema = new Schema(
+//     {   
+//         tipoChave: {
+//             type: String,
+//             enum:  ["CPF","RG","CELULAR"],
+//             uppercase: true
+//         },
+//         chave: {
+//             type: String,
+//             required: [true, "O campo CHAVE do PIX é obrigatório!"]
+//         }
+//     },
+//     {
+//         timestamps: true,
+//     }
+// );
 
-export default model("pix", pixSchema);
+// export { pixSchema };
