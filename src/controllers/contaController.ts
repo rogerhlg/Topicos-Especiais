@@ -3,6 +3,7 @@ import ContaSchema from "../models/ContaSchema";
 import DepositoSchema from "../models/DepositoSchema";
 import SaqueSchema from "../models/SaqueSchema";
 import TransferenciaSchema from "../models/TransferenciaSchema";
+import ExtratoSchema from "../models/ExtratoSchema";
 
 
 class ContaController{
@@ -13,11 +14,11 @@ class ContaController{
     }
 
     async buscarPorCpf(request: Request, response: Response) {
-        const { id } = request.params;
+        const { cpf } = request.params;
         // const ciclo = await CicloSchema.findById(id);
         // const ciclo = await CicloSchema.find({ _id : id});
         try {
-            const conta = await ContaSchema.findOne({ _id : id});
+            const conta = await ContaSchema.findOne({ CPF : cpf});
             if(conta === null) {
                 response.status(404).json({ msg: "A conta não existe!"});
             }
@@ -135,9 +136,18 @@ class ContaController{
       }
     }
 
-    async extrato(request: Request, response: Response){
-
-    }
+    // async extrato(request: Request, response: Response){
+    //   const { PIX } = request.params;
+    //     try {
+    //         const conta = await ContaSchema.findOne({ PIX : PIX });
+    //         if(conta === null) {
+    //             response.status(404).json({ msg: "A conta não existe!"});
+    //         }
+            
+    //     } catch (error) {
+    //         response.status(400).json(error);
+    //     }
+    // }
 }
 
 export { ContaController }

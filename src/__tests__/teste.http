@@ -3,14 +3,14 @@ GET http://localhost:3000/conta/listar/
 
 
 ###
-GET http://localhost:3000/conta/buscar/333333
+GET http://localhost:3000/conta/buscar/1234
 
 ###
 POST http://localhost:3000/conta/cadastrar
 Content-Type: application/json
 
 {
-    "primeiroNome" : "Lelele",
+    "primeiroNome" : "Alex",
     "sobrenome" : "aaa",
     "CPF" : "02",
     "telefone" : "9999999",
@@ -28,6 +28,7 @@ Content-Type: application/json
     "telefone" : "9999999",
     "chavepix" : "segundachave"
 }
+
 
 ###
 DELETE http://localhost:3000/conta/deletar/123123
