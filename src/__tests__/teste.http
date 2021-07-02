@@ -14,7 +14,7 @@ Content-Type: application/json
     "sobrenome" : "aaa",
     "CPF" : "02",
     "telefone" : "9999999",
-    "PIX": "pixpix"
+    "PIX": "pixpixp"
 }
 
 ###

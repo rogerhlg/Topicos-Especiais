@@ -1,10 +1,10 @@
 ###
-POST http://localhost:3000/conta/deposito/pixpix
+POST http://localhost:3000/conta/deposito/chaveta
 Content-Type: application/json
 
 {
     "valor" : 500,
-    "pix" : "pixpix"
+    "pix" : "chaveta"
 }
 
 ###
@@ -16,3 +16,13 @@ Content-Type: application/json
     "chavepix" : "pixpix"
 }
 
+
+###
+POST http://localhost:3000/conta/transferencia/chaveta
+Content-Type: application/json
+
+{
+    "valor" : 100,
+    "chavepix" : "chaveta",
+    "pixDestino" : "chavinha"
+}

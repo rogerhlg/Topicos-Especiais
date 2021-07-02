@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import ContaSchema from "../models/ContaSchema";
 import DepositoSchema from "../models/DepositoSchema";
 import SaqueSchema from "../models/SaqueSchema";
+import TransferenciaSchema from "../models/TransferenciaSchema";
 
 
 class ContaController{
@@ -112,12 +113,26 @@ class ContaController{
             await DepositoSchema.create(request.body);
             // console.log(request.body);
             const saldo  = deposito.valor;
-            const pix = deposito.pix;
             await ContaSchema.updateOne({PIX : PIX}, {$inc : {saldo}});
                 response.status(200).json("Deposito efetuado");
         } catch (error) {
             response.status(400).json(error);
         }
+    }
+
+    async transferencia(request: Request, response: Response){
+      try {
+        const transferencia = request.body;
+        const {PIX} = request.params;
+        await TransferenciaSchema.create(request.body);
+        const saldo = transferencia.valor;
+        const pixDestino = transferencia.pixDestino;
+        await ContaSchema.updateOne({PIX: PIX}, {$inc : {saldo : -saldo}});
+        await ContaSchema.updateOne({PIX: pixDestino}, {$inc : {saldo}})
+        response.status(200).json("Tranferência realizada");
+      } catch (error) {
+        response.status(400).json(error);
+      }
     }
 
     async extrato(request: Request, response: Response){

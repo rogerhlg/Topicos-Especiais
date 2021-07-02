@@ -12,5 +12,6 @@ router.delete("/conta/deletar/:CPF", contaController.remover);
 router.post("/conta/saque/:PIX", contaController.saque);
 router.post("/conta/deposito/:PIX", contaController.deposito);
 router.put("/conta/atualizar/:cpf", contaController.atualizar);
+router.post("/conta/transferencia/:PIX", contaController.transferencia);
 
 export { router };
