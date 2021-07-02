@@ -13,11 +13,11 @@ class ContaController{
     }
 
     async buscarPorCpf(request: Request, response: Response) {
-        const { cpf } = request.params;
+        const { id } = request.params;
         // const ciclo = await CicloSchema.findById(id);
         // const ciclo = await CicloSchema.find({ _id : id});
         try {
-            const conta = await ContaSchema.findOne({ CPF : cpf});
+            const conta = await ContaSchema.findOne({ _id : id});
             if(conta === null) {
                 response.status(404).json({ msg: "A conta não existe!"});
             }
@@ -51,7 +51,7 @@ class ContaController{
           } else{
             response.status(404).json({
                 objeto: conta,
-                msg:"A conta procurado não existe",
+                msg:"A conta procurada não existe",
                 erro:true})
           }
         } catch (error) {
@@ -66,10 +66,15 @@ class ContaController{
 
     async cadastrar(request: Request, response: Response) {
         try {
+          const { cpf } = request.body;
+          if (await ContaSchema.exists({ cpf })) {
+            response.status(400).json({ msg: "CPF duplicado pelo código" });
+          } else {
             const novaConta = await ContaSchema.create(request.body);
             response.status(201).json(novaConta);
-        }catch (error) {
-            response.status(400).json(error);
+          }
+        } catch {
+          response.status(400).json({ msg: "CPF duplicado" });
         }
     }
 

@@ -23,7 +23,7 @@ const contaSchema = new Schema(
             type: Number,
             default: 0
         },
-        PIX: [{ type: Schema.Types.ObjectId, ref: "pix"}]
+        PIX: [{ type: Schema.Types.String, ref: 'pix'}]
     },
     {
         timestamps: true,

@@ -10,11 +10,14 @@ POST http://localhost:3000/conta/cadastrar
 Content-Type: application/json
 
 {
-    "primeiroNome" : "RogerDopix",
+    "primeiroNome" : "Liandra",
     "sobrenome" : "abc",
     "CPF" : "333333",
     "telefone" : "9999999",
-    "PIX" : "segundachave"
+    "chave": [
+        "AAAAAAA", "hggh"
+    ] 
+    
 }
 
 ###
